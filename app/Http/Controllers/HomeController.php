@@ -29,11 +29,11 @@ class HomeController extends Controller
 
     public function adminhome()
     {
-        echo "admin";
+        return view('admin.useradmin');
     }
 
     public function berbarhome()
     {
-        echo "berbar";
+        return view('Barber.useradmin');
     }
 }
