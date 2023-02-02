@@ -15,9 +15,16 @@
           <form method="POST" action="{{ route('admin.barbarschedulpost',$barber->id) }}" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
+
               <div class="form-group">
-                <label for="exampleInputEmail1">Set Time</label>
+                <label for="exampleInputEmail1">Set Start Time</label>
                 <input type="time" class="form-control" name="time" id="exampleInputEmail1" placeholder="set time">
+              </div>
+
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Set End Time</label>
+                <input type="time" class="form-control" name="end_time" id="exampleInputEmail1" placeholder="set time">
               </div>
 
               <div class="form-group">

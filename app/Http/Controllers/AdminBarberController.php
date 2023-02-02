@@ -35,6 +35,7 @@ class AdminBarberController extends Controller
         $data=array();
 
         $data['time']=$request->time;
+        $data['end_time']=$request->end_time;
         $data['date']=$request->date;
         $data['b_id']=$id;
 
