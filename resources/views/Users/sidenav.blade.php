@@ -38,26 +38,25 @@
         </li>
 
 
-        <li class="nav-header">Barbers</li>
         <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Barbar scheduling
+                Barber
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('admin.barbarindex') }}" class="nav-link">
+                <a href="{{ route('customer.home') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Set Schedul</p>
+                  <p>Schedul</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('admin.barbarschedulshow') }}" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Show Schedul</p>
+                  <p>Show Nav Item</p>
                 </a>
               </li>
 
@@ -86,6 +85,7 @@
           </a>
         </li>
 
+
         <li class="nav-item">
             <a href="{{ route('logout') }}"
 
@@ -102,6 +102,7 @@
                 @csrf
             </form>
           </li>
+
 
       </ul>
     </nav>

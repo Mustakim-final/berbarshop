@@ -14,3 +14,9 @@ class AdminBarber extends Model
         'date',
 
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'id','b_id');
+    }
+}

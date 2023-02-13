@@ -120,7 +120,7 @@
 
 
         <li class="nav-header">EXAMPLES</li>
-        
+
         <li class="nav-item">
           <a href="../calendar.html" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
@@ -130,6 +130,23 @@
             </p>
           </a>
         </li>
+
+        <li class="nav-item">
+            <a href="{{ route('logout') }}"
+
+            onclick="event.preventDefault();document.getElementById('logout-form').submit();"
+
+            class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Logout
+              </p>
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+          </li>
 
       </ul>
     </nav>

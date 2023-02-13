@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminBarberController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,8 +27,16 @@ Route::get('/home/admin', [App\Http\Controllers\HomeController::class, 'adminhom
 
 Route::get('/home/berbar', [App\Http\Controllers\HomeController::class, 'berbarhome'])->name('berbar.home')->middleware('isBarber');
 
+//Route::get('/home/customer', [App\Http\Controllers\HomeController::class, 'customerhome'])->name('customer.home');
 //admin
-Route::get('home/admin/barber',[AdminBarberController::class,'index'])->name('admin.barbarindex');
-Route::get('home/admin/barber/schedul/{id}',[AdminBarberController::class,'setschedul'])->name('admin.barbarschedul');
+Route::get('home/admin/barber',[AdminBarberController::class,'index'])->name('admin.barbarindex')->middleware('isAdmin');
+Route::get('home/admin/barber/schedul/{id}',[AdminBarberController::class,'setschedul'])->name('admin.barbarschedul')->middleware('isAdmin');
 
-Route::post('home/admin/barber/schedul/post/{id}',[AdminBarberController::class,'post'])->name('admin.barbarschedulpost');
+Route::post('home/admin/barber/schedul/post/{id}',[AdminBarberController::class,'post'])->name('admin.barbarschedulpost')->middleware('isAdmin');
+
+Route::get('home/admin/barber/schedulshow',[AdminBarberController::class,'show'])->name('admin.barbarschedulshow')->middleware('isAdmin');
+
+
+//customer
+
+Route::get('/home/customer',[CustomerController::class,'index'])->name('customer.home');
