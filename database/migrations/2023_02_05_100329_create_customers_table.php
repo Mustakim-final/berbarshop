@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
+            $table->string('customer_name')->nullable();
+            $table->string('customer_id')->nullable();
+            $table->string('b_id')->nullable();
+            $table->string('schedul_id')->nullable();
+            $table->string('s_time')->nullable();
+            $table->string('e_time')->nullable();
+            $table->string('confirm')->nullable()->default(0);
+            $table->string('date')->nullable();
             $table->timestamps();
         });
     }

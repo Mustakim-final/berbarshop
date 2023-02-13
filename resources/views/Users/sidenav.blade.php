@@ -54,9 +54,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('customer.apointment') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Show Nav Item</p>
+                  <p>My Apointment</p>
                 </a>
               </li>
 
@@ -68,7 +68,14 @@
 
 
 
-
+          <li class="nav-item">
+            <a href="{{ route('customer.profile') }}" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Profile
+              </p>
+            </a>
+          </li>
 
 
 

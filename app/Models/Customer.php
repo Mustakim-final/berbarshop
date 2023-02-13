@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'customer_name',
+        'customer_id',
+        'b_id',
+        'schedul_id',
+        's_time',
+        'e_time',
+        'date',
+    ];
 }

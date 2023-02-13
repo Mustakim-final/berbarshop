@@ -40,3 +40,11 @@ Route::get('home/admin/barber/schedulshow',[AdminBarberController::class,'show']
 //customer
 
 Route::get('/home/customer',[CustomerController::class,'index'])->name('customer.home');
+Route::get('home/customer/barber/apointment/page/{id}',[CustomerController::class,'apointmentpage'])->name('customer.apointmentpage');
+Route::post('home/customer/barber/apointment/post/{id}',[CustomerController::class,'post'])->name('customer.apointmentpost');
+Route::get('home/customer/barber/apointment/my',[CustomerController::class,'apointment'])->name('customer.apointment');
+Route::get('home/customer/barber/apointment/cancel/my/{id}',[CustomerController::class,'delete'])->name('customer.apointmentdelete');
+Route::get('home/customer/barber/apointment/updatepage/my/{id}/{b_id}',[CustomerController::class,'apointmentupdate'])->name('customer.apointmentupdatepage');
+Route::post('home/customer/barber/update/my/apointment/{id}',[CustomerController::class,'apointmentupdatepost'])->name('customer.apointmentupdate');
+Route::get('/home/customer/profile/update',[CustomerController::class,'update'])->name('customer.profile');
+Route::post('home/customer/prodile/update/post',[CustomerController::class,'updateprofile'])->name('customer.profileupdate');

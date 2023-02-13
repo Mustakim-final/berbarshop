@@ -11,7 +11,9 @@ class AdminBarber extends Model
         'name',
         'b_id',
         'time',
+        'end_time',
         'date',
+        'duration',
 
     ];
 
