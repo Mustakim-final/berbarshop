@@ -77,5 +77,7 @@ Route::post('/home/barber/myschedul/update/post/{id}',[BarberController::class,'
 Route::get('/home/barber/myschedul/delete/post/{id}',[BarberController::class,'delete'])->name('barber.scheduldelete')->middleware('isBarber');
 
 Route::get('/home/barber/myapointment',[BarberController::class,'myapointment'])->name('barber.myschedul')->middleware('isBarber');
-Route::get('home/barber/booking/confirm/{id}',[AdminBarberController::class,'confirm'])->name('barber.customerbookingconfirm')->middleware('isBarber');
-Route::get('home/barber/booking/cancel/{id}',[AdminBarberController::class,'cancel'])->name('barber.customerbookingcancel')->middleware('isBarber');
+Route::get('home/barber/booking/confirm/{id}',[BarberController::class,'confirm'])->name('barber.customerbookingconfirm')->middleware('isBarber');
+Route::get('home/barber/booking/cancel/{id}',[BarberController::class,'cancel'])->name('barber.customerbookingcancel')->middleware('isBarber');
+Route::get('/home/barber/profile/deactive',[BarberController::class,'deactive'])->name('barber.profiledeactive')->middleware('isBarber');
+Route::get('/home/barber/profile/active',[BarberController::class,'active'])->name('barber.profileactive')->middleware('isBarber');

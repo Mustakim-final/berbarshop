@@ -52,7 +52,8 @@ class AdminBarberController extends Controller
 
     public function show()
     {
-        $schedul=AdminBarber::all()->groupBy('b_id');
+        //$schedul=AdminBarber::all()->groupBy('b_id');
+        $schedul=AdminBarber::all()->where('barber',2)->groupBy('b_id');
         //dd($schedul);
         return view('admin.abarber.schedulshow',compact('schedul'));
     }

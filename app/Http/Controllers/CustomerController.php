@@ -21,7 +21,7 @@ class CustomerController extends Controller
         //         ->groupBy('users.name')
         //         ->get();
 
-       $schedul=AdminBarber::all()->groupBy('b_id');
+        $schedul=AdminBarber::all()->where('barber',2)->groupBy('b_id');
 
     //    $barber=DB::table('admin_barbers')
     //              ->join('users','admin_barbers.b_id','users.id')

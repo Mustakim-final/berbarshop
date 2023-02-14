@@ -89,6 +89,26 @@
         </li>
 
         <li class="nav-item">
+            <a href="{{ route('barber.profileactive') }}" class="nav-link">
+                <i class="fa-solid fa-square-check"></i>
+              <p>
+                Active
+              </p>
+            </a>
+          </li>
+
+        <li class="nav-item">
+            <a href="{{ route('barber.profiledeactive') }}" class="nav-link">
+                <i class="fa-sharp fa-solid fa-circle-xmark"></i>
+              <p>
+                DeActive
+              </p>
+            </a>
+          </li>
+
+
+
+        <li class="nav-item">
             <a href="{{ route('logout') }}"
 
             onclick="event.preventDefault();document.getElementById('logout-form').submit();"

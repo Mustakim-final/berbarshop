@@ -173,4 +173,21 @@ class BarberController extends Controller
         return redirect()->back()->with($notification);
     }
 
+
+    public function deactive()
+    {
+        $id=Auth::user()->id;
+        $user=DB::table('admin_barbers')->where('b_id',$id)->update(['barber'=>0]);
+        $notification = array('message' => 'Your Account Deactive', 'alert-type' => 'success');
+        return redirect()->back()->with($notification);
+    }
+
+    public function active()
+    {
+        $id=Auth::user()->id;
+        $user=DB::table('admin_barbers')->where('b_id',$id)->update(['barber'=>2]);
+        $notification = array('message' => 'Your Account active', 'alert-type' => 'success');
+        return redirect()->back()->with($notification);
+    }
+
 }

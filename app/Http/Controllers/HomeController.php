@@ -56,7 +56,7 @@ class HomeController extends Controller
     public function barberconfirm($id)
     {
         $user=DB::table('users')->where('id',$id)->update(['isBarber'=>2]);
-
+        $user=DB::table('admin_barbers')->where('b_id',$id)->update(['barber'=>2]);
         return redirect()->back();
 
     }
@@ -64,7 +64,7 @@ class HomeController extends Controller
     public function barberunconfirm($id)
     {
         $user=DB::table('users')->where('id',$id)->update(['isBarber'=>0]);
-
+        $user=DB::table('admin_barbers')->where('b_id',$id)->update(['barber'=>0]);
         return redirect()->back();
 
     }
