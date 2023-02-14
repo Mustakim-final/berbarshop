@@ -28,8 +28,10 @@ class CustomerController extends Controller
     //              ->select('users.name','admin_barbers.b_id','admin_barbers.time')
     //              ->groupBy('b_id','time','users.name')->get();
         //dd($barber);
+        $id=Auth::user()->id;
+        $user=User::find($id);
 
-        return view('Users.auser.index',compact('schedul'));
+        return view('Users.auser.index',compact('schedul','user'));
     }
 
     public function apointmentpage($id)
@@ -114,7 +116,7 @@ class CustomerController extends Controller
 
     public function apointmentupdatepost(Request $request,$id)
     {
-        DB::table('amdin_barbers')->where('id', $id)->update(['duration' => 60]);
+        DB::table('admin_barbers')->where('id', $id)->update(['duration' => 60]);
 
         $data = array();
 

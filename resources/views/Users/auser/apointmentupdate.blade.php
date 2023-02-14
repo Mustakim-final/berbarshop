@@ -40,7 +40,7 @@
                                                     @if ($row->id==$myschedul->schedul_id)
                                                     selected
                                                     @endif
-                                                    {{ $row->s_time }}-{{ $row->e_time }}</option>
+                                                    {{ $row->time }}-{{ $row->end_time }}</option>
                                             @endforeach
 
                                         </select>

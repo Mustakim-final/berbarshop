@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminBarberController;
+use App\Http\Controllers\BarberController;
 use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,7 +36,19 @@ Route::get('home/admin/barber/schedul/{id}',[AdminBarberController::class,'setsc
 Route::post('home/admin/barber/schedul/post/{id}',[AdminBarberController::class,'post'])->name('admin.barbarschedulpost')->middleware('isAdmin');
 
 Route::get('home/admin/barber/schedulshow',[AdminBarberController::class,'show'])->name('admin.barbarschedulshow')->middleware('isAdmin');
+//set barber for admin
+Route::get('/home/admin/barbers', [App\Http\Controllers\HomeController::class, 'barberindex'])->name('admin.barberuser')->middleware('isAdmin');
+Route::get('/home/admin/barbers/confirm/{id}', [App\Http\Controllers\HomeController::class, 'barberconfirm'])->name('admin.barberconfirm')->middleware('isAdmin');
 
+Route::get('/home/admin/barbers/unconfirm/{id}', [App\Http\Controllers\HomeController::class, 'barberunconfirm'])->name('admin.barberunconfirm')->middleware('isAdmin');
+
+//admin booking check
+
+Route::get('home/admin/customer/current/booking',[AdminBarberController::class,'currentbook'])->name('admin.customerbooking')->middleware('isAdmin');
+Route::get('home/admin/customer/old/booking',[AdminBarberController::class,'oldbook'])->name('admin.customeroldbooking')->middleware('isAdmin');
+Route::get('home/admin/customer/current/booking/confirm/{id}',[AdminBarberController::class,'confirm'])->name('admin.customerbookingconfirm')->middleware('isAdmin');
+Route::get('home/admin/customer/current/booking/cancel/{id}',[AdminBarberController::class,'cancel'])->name('admin.customerbookingcancel')->middleware('isAdmin');
+Route::get('home/admin/customer/current/booking/rescheduling',[AdminBarberController::class,'reschedul'])->name('admin.bookingreschedul')->middleware('isAdmin');
 
 //customer
 
@@ -48,3 +61,21 @@ Route::get('home/customer/barber/apointment/updatepage/my/{id}/{b_id}',[Customer
 Route::post('home/customer/barber/update/my/apointment/{id}',[CustomerController::class,'apointmentupdatepost'])->name('customer.apointmentupdate');
 Route::get('/home/customer/profile/update',[CustomerController::class,'update'])->name('customer.profile');
 Route::post('home/customer/prodile/update/post',[CustomerController::class,'updateprofile'])->name('customer.profileupdate');
+
+//barber
+
+Route::get('/home/barber/profile/update',[BarberController::class,'update'])->name('barber.profile')->middleware('isBarber');
+Route::post('home/barber/prodile/update/post',[BarberController::class,'updateprofile'])->name('barber.profileupdate')->middleware('isBarber');
+
+Route::get('/home/barber/allschedul',[BarberController::class,'index'])->name('barber.allschedul')->middleware('isBarber');
+Route::get('/home/barber/myschedul/page',[BarberController::class,'myschedulpage'])->name('barber.myschedulpage')->middleware('isBarber');
+Route::post('/home/barber/myschedul/post',[BarberController::class,'myschedul'])->name('barber.myschedulpost')->middleware('isBarber');
+
+Route::get('/home/barber/myschedul/all/page',[BarberController::class,'shcedulpage'])->name('barber.schedulpage')->middleware('isBarber');
+Route::get('/home/barber/myschedul/update/page/{id}',[BarberController::class,'shcedulupdatepage'])->name('barber.schedulupdatepage')->middleware('isBarber');
+Route::post('/home/barber/myschedul/update/post/{id}',[BarberController::class,'shcedulupdate'])->name('barber.schedulupdate')->middleware('isBarber');
+Route::get('/home/barber/myschedul/delete/post/{id}',[BarberController::class,'delete'])->name('barber.scheduldelete')->middleware('isBarber');
+
+Route::get('/home/barber/myapointment',[BarberController::class,'myapointment'])->name('barber.myschedul')->middleware('isBarber');
+Route::get('home/barber/booking/confirm/{id}',[AdminBarberController::class,'confirm'])->name('barber.customerbookingconfirm')->middleware('isBarber');
+Route::get('home/barber/booking/cancel/{id}',[AdminBarberController::class,'cancel'])->name('barber.customerbookingcancel')->middleware('isBarber');

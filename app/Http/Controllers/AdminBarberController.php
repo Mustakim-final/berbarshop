@@ -56,4 +56,50 @@ class AdminBarberController extends Controller
         //dd($schedul);
         return view('admin.abarber.schedulshow',compact('schedul'));
     }
+
+
+    public function currentbook()
+    {
+        $date=date("Y-m-d");
+        $schedul=DB::table('customers')
+                ->join('admin_barbers','customers.schedul_id','admin_barbers.id')
+                ->where('customers.date',$date)
+                ->get();
+        return view('admin.customer.currentbook',compact('schedul'));
+    }
+
+
+    public function oldbook()
+    {
+        $date=date("Y-m-d");
+        $schedul=DB::table('customers')
+                ->join('admin_barbers','customers.schedul_id','admin_barbers.id')
+                ->whereNot('customers.date',$date)
+                ->get();
+        return view('admin.customer.oldbook',compact('schedul'));
+    }
+
+
+    public function confirm($id)
+    {
+        DB::table('admin_barbers')->where('id',$id)->update(['duration'=>59]);
+        DB::table('customers')->where('schedul_id',$id)->update(['confirm'=>1]);
+        $notification=array('message'=>'Confirm','alert-type'=>'success');
+        return redirect()->back()->with($notification);
+    }
+
+    public function cancel($id)
+    {
+        DB::table('admin_barbers')->where('id',$id)->update(['duration'=>60]);
+        DB::table('customers')->where('schedul_id',$id)->update(['confirm'=>0]);
+        $notification=array('message'=>'Cancel','alert-type'=>'success');
+        return redirect()->back()->with($notification);
+    }
+
+    public function reschedul()
+    {
+        $barber=DB::table('admin_barbers')->where('duration',59)->get();
+
+        return view('admin.abarber.bookingreschedul',compact('barber'));
+    }
 }

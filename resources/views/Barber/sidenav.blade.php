@@ -2,7 +2,7 @@
     <!-- Sidebar user (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="{{ asset('admin') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        <img src="{{ URL::to($user->image) }}" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
         <a href="" class="d-block">{{ Auth::user()->name }}</a>
@@ -10,16 +10,17 @@
     </div>
 
     <!-- SidebarSearch Form -->
+
     <div class="form-inline">
-      <div class="input-group" data-widget="sidebar-search">
-        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-sidebar">
-            <i class="fas fa-search fa-fw"></i>
-          </button>
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
     <!-- Sidebar Menu -->
     <nav class="mt-2">
@@ -27,36 +28,36 @@
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
 
-        <li class="nav-item">
-          <a href="../widgets.html" class="nav-link">
-            <i class="nav-icon fas fa-th"></i>
-            <p>
-              Widgets
-              <span class="right badge badge-danger">New</span>
-            </p>
-          </a>
-        </li>
+
 
 
         <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+                <i class="fa-solid fa-link"></i>
               <p>
-                Top Nav Item
+                Apointment
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{ route('barber.myschedulpage') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Nav Item</p>
+                  <p>Set My Schedul</p>
                 </a>
               </li>
+
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{ route('barber.schedulpage') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Show Nav Item</p>
+                  <p>My Schedul</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ route('barber.myschedul') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>My Apointment</p>
                 </a>
               </li>
 
@@ -64,69 +65,25 @@
           </li>
 
 
-
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-table"></i>
-            <p>
-              Slider
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Add Slider</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Show Slider</p>
-              </a>
-            </li>
-
-          </ul>
-        </li>
-
-        <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+          <li class="nav-item">
+            <a href="{{ route('barber.allschedul') }}" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
               <p>
-                Subject header
-                <i class="fas fa-angle-left right"></i>
+                All Schedul
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add title and subtitle</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Show title and subtitle</p>
-                </a>
-              </li>
-
-            </ul>
           </li>
 
 
 
 
-
-        <li class="nav-header">EXAMPLES</li>
+        <li class="nav-header">Profile</li>
 
         <li class="nav-item">
-          <a href="../calendar.html" class="nav-link">
-            <i class="nav-icon far fa-calendar-alt"></i>
+          <a href="{{ route('barber.profile') }}" class="nav-link">
+            <i class="fa-solid fa-user"></i>
             <p>
-              Calendar
-              <span class="badge badge-info right">2</span>
+              My Profile
             </p>
           </a>
         </li>
@@ -137,7 +94,7 @@
             onclick="event.preventDefault();document.getElementById('logout-form').submit();"
 
             class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+            <i class="nav-icon fa-solid fa-right-from-bracket"></i>
               <p>
                 Logout
               </p>

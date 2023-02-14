@@ -33,8 +33,8 @@
                                 @foreach ($apointment as $key => $row)
                                     <tr>
                                         <th>{{ ++$key }}</th>
-                                        <td>{{ $row->s_time }}</td>
-                                        <th>{{ $row->e_time }}</th>
+                                        <td>{{ $row->time }}</td>
+                                        <th>{{ $row->end_time }}</th>
                                         <th>{{ $row->date }}</th>
                                         <th>
                                             <a href="{{ route('customer.apointmentdelete', $row->schedul_id) }}"
