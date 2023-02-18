@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('end_time')->nullable();
             $table->string('date')->nullable();
             $table->string('duration')->nullable();
+            $table->string('barber')->nullable();
             $table->timestamps();
         });
     }
