@@ -52,7 +52,7 @@ class BarberController extends Controller
         $id=Auth::user()->id;
         $user=User::find($id);
 
-       $schedul=AdminBarber::all()->where('b_id',$id)->groupBy('b_id');
+       $schedul=AdminBarber::all()->where('b_id',$id)->where('barber',2)->groupBy('b_id');
        //dd($schedul);
         return view('Barber.barberprofile.index',compact('schedul','user'));
     }
@@ -101,8 +101,10 @@ class BarberController extends Controller
         $date=date("Y-m-d");
         $schedul=DB::table('customers')
                 ->join('admin_barbers','customers.schedul_id','admin_barbers.id')
-                ->where('customers.date',$date)
+                ->where('customers.b_id',$id)
+                ->select('admin_barbers.*','customers.customer_name','customers.date')
                 ->get();
+        //dd($schedul);
         return view('Barber.barberprofile.myapointment',compact('schedul','user'));
     }
 

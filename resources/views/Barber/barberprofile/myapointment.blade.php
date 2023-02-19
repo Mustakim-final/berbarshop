@@ -23,6 +23,7 @@
                 <th>Customer Name</th>
                 <th>Start Time</th>
                 <th>End Time</th>
+                <th>Date</th>
                 <th>Action</th>
 
 
@@ -37,7 +38,9 @@
                     <th>{{ ++$key }}</th>
                     <td>{{ $row->customer_name }}</td>
                     <th>{{ $row->time }}</th>
+
                     <th>{{ $row->end_time }}</th>
+                    <th>{{ $row->date }}</th>
 
                     <td>
                         @if ($row->duration==60)
@@ -59,6 +62,7 @@
                 <th>Customer Name</th>
                 <th>Start Time</th>
                 <th>End Time</th>
+                <th>Date</th>
                 <th>Action</th>
               </tr>
               </tfoot>
