@@ -52,7 +52,7 @@ class BarberController extends Controller
         $id=Auth::user()->id;
         $user=User::find($id);
 
-       $schedul=AdminBarber::all()->groupBy('b_id');
+       $schedul=AdminBarber::all()->where('b_id',$id)->groupBy('b_id');
        //dd($schedul);
         return view('Barber.barberprofile.index',compact('schedul','user'));
     }
@@ -179,7 +179,7 @@ class BarberController extends Controller
         $id=Auth::user()->id;
         $user=DB::table('admin_barbers')->where('b_id',$id)->update(['barber'=>0]);
         $notification = array('message' => 'Your Account Deactive', 'alert-type' => 'success');
-        return redirect()->back()->with($notification);
+        return redirect()->route('barber.profile')->with($notification);
     }
 
     public function active()
@@ -187,7 +187,7 @@ class BarberController extends Controller
         $id=Auth::user()->id;
         $user=DB::table('admin_barbers')->where('b_id',$id)->update(['barber'=>2]);
         $notification = array('message' => 'Your Account active', 'alert-type' => 'success');
-        return redirect()->back()->with($notification);
+        return redirect()->route('barber.profile')->with($notification);
     }
 
 }

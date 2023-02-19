@@ -77,8 +77,7 @@
                                             @endif
                                         @endforeach
                                         <td>
-                                            <a href="{{ route('customer.apointmentpage', $row1->b_id) }}"
-                                                class="btn btn-info">Apointment</a>
+                                           
                                         </td>
                                     @elseif ($loop->iteration == 2)
                                         @foreach ($row as $key => $row1)
@@ -123,8 +122,7 @@
                                             @endif
                                         @endforeach
                                         <td>
-                                            <a href="{{ route('customer.apointmentpage', $row1->b_id) }}"
-                                                class="btn btn-info">Apointment</a>
+
                                         </td>
                                     @elseif ($loop->iteration == 3)
                                         @foreach ($row as $key => $row1)
@@ -168,10 +166,7 @@
                                                 @endif
                                             @endif
                                         @endforeach
-                                        <td>
-                                            <a href="{{ route('customer.apointmentpage', $row1->b_id) }}"
-                                                class="btn btn-info">Apointment</a>
-                                        </td>
+
                                     @endif
                                 </tbody>
                             @endforeach

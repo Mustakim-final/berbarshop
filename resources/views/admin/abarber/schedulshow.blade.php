@@ -19,7 +19,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+
                                     <th>Name</th>
                                     <th>9AM to 10 AM</th>
                                     <th>10AM to 11 AM</th>
@@ -27,7 +27,7 @@
                                     <th>1PM to 2 PM</th>
                                     <th>2PM to 3 PM</th>
                                     <th>3PM to 4 PM</th>
-                                    <th>Action</th>
+
 
 
                                 </tr>
@@ -41,7 +41,7 @@
                                 @if ($loop->iteration == 1)
                                     @foreach ($row as $key => $row1)
                                         @if ($loop->iteration == 1)
-                                            <th>{{ ++$key }}</th>
+
                                             <th>{{ $row1->name }}</th>
                                             <th>{{ $row1->time }}-{{ $row1->end_time }}</th>
                                         @elseif($loop->iteration == 2)
@@ -62,7 +62,7 @@
                                 @elseif ($loop->iteration == 2)
                                     @foreach ($row as $key => $row1)
                                         @if ($loop->iteration == 1)
-                                            <th>{{ ++$key }}</th>
+
                                             <th>{{ $row1->name }}</th>
                                             <th>{{ $row1->time }}-{{ $row1->end_time }}</th>
                                         @elseif($loop->iteration == 2)
@@ -83,7 +83,7 @@
                                 @elseif ($loop->iteration == 3)
                                     @foreach ($row as $key => $row1)
                                         @if ($loop->iteration == 1)
-                                            <th>{{ ++$key }}</th>
+
                                             <th>{{ $row1->name }}</th>
                                             <th>{{ $row1->time }}-{{ $row1->end_time }}</th>
                                         @elseif($loop->iteration == 2)
@@ -103,10 +103,10 @@
                             @endforeach
 
 
-                            
+
                             <tfoot>
                                 <tr>
-                                    <th>#</th>
+
                                     <th>Name</th>
                                     <th>9AM to 10 AM</th>
                                     <th>10AM to 11 AM</th>
@@ -114,7 +114,7 @@
                                     <th>1PM to 2 PM</th>
                                     <th>2PM to 3 PM</th>
                                     <th>3PM to 4 PM</th>
-                                    <th>Action</th>
+                                    
                                 </tr>
                             </tfoot>
                         </table>

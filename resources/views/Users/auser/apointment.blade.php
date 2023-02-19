@@ -27,7 +27,7 @@
                                 <div class="card-body">
 
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Product Category</label>
+                                        <label for="exampleInputPassword1">Set Time</label>
                                         <select name="schedul_id" class="form-control" required>
                                             <option disabled selected>Select One</option>
                                             @foreach ($schedul as $row)

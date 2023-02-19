@@ -33,7 +33,7 @@
               <li class="nav-item">
                 <a href="{{ route('customer.home') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Schedul</p>
+                  <p>Take Appointment</p>
                 </a>
               </li>
               <li class="nav-item">

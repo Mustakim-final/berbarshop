@@ -39,7 +39,7 @@
 
                     <td>
                         @if ($row->isBarber==2)
-                        <a href="{{ route('admin.barberunconfirm',$row->id) }}" class="btn btn-info">Barber</a>
+                        <a href="{{ route('admin.barberunconfirm',$row->id) }}" class="btn btn-info">Fired</a>
                         @else
                         <a href="{{ route('admin.barberconfirm',$row->id) }}" class="btn btn-info">Confirm</a>
                         @endif

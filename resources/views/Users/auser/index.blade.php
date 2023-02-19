@@ -19,7 +19,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+
                                     <th>Name</th>
                                     <th>9AM to 10 AM</th>
                                     <th>10AM to 11 AM</th>
@@ -38,7 +38,7 @@
                                     @if ($loop->iteration == 1)
                                         @foreach ($row as $key => $row1)
                                             @if ($loop->iteration == 1)
-                                                <th>{{ ++$key }}</th>
+
                                                 <th>{{ $row1->name }}</th>
                                                 @if ($row1->duration == 60)
                                                     <th>Available</th>
@@ -84,7 +84,7 @@
                                     @elseif ($loop->iteration == 2)
                                         @foreach ($row as $key => $row1)
                                             @if ($loop->iteration == 1)
-                                                <th>{{ ++$key }}</th>
+
                                                 <th>{{ $row1->name }}</th>
                                                 @if ($row1->duration == 60)
                                                     <th>Available</th>
@@ -130,7 +130,7 @@
                                     @elseif ($loop->iteration == 3)
                                         @foreach ($row as $key => $row1)
                                             @if ($loop->iteration == 1)
-                                                <th>{{ ++$key }}</th>
+
                                                 <th>{{ $row1->name }}</th>
                                                 @if ($row1->duration == 60)
                                                     <th>Available</th>
@@ -179,7 +179,7 @@
 
                             <tfoot>
                                 <tr>
-                                    <th>#</th>
+                                    
                                     <th>Name</th>
                                     <th>9AM to 10 AM</th>
                                     <th>10AM to 11 AM</th>
