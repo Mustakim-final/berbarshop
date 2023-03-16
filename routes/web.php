@@ -44,6 +44,11 @@ Route::get('/home/admin/barbers/unconfirm/{id}', [App\Http\Controllers\HomeContr
 
 //admin booking check
 
+Route::get('home/admin/customer/advance/booking',[AdminBarberController::class,'advancebook'])->name('admin.customeradvancebooking')->middleware('isAdmin');
+Route::get('home/admin/customer/advancecurrent/booking/confirm/{id}',[AdminBarberController::class,'adconfirm'])->name('admin.customerbookingadconfirm')->middleware('isAdmin');
+Route::get('home/admin/customer/advancecurrent/booking/cancel/{id}',[AdminBarberController::class,'adcancel'])->name('admin.customerbookingadcancel')->middleware('isAdmin');
+
+
 Route::get('home/admin/customer/current/booking',[AdminBarberController::class,'currentbook'])->name('admin.customerbooking')->middleware('isAdmin');
 Route::get('home/admin/customer/old/booking',[AdminBarberController::class,'oldbook'])->name('admin.customeroldbooking')->middleware('isAdmin');
 Route::get('home/admin/customer/current/booking/confirm/{id}',[AdminBarberController::class,'confirm'])->name('admin.customerbookingconfirm')->middleware('isAdmin');

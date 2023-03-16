@@ -24,6 +24,7 @@
                 <th>Customer Name</th>
                 <th>Start Time</th>
                 <th>End Time</th>
+                <th>Date</th>
                 <th>Action</th>
 
 
@@ -40,12 +41,13 @@
                     <td>{{ $row->customer_name }}</td>
                     <th>{{ $row->time }}</th>
                     <th>{{ $row->end_time }}</th>
+                    <th>{{ $row->date }}</th>
 
                     <td>
                         @if ($row->duration==60)
-                        <a href="{{ route('admin.customerbookingconfirm',$row->id) }}" class="btn btn-info">Confirm</a>
+                        <a href="{{ route('admin.customerbookingconfirm',$row->schedul_id) }}" class="btn btn-info">Confirm</a>
                         @else
-                        <a href="{{ route('admin.customerbookingcancel',$row->id) }}" class="btn btn-info">Cancel</a>
+                        <a href="{{ route('admin.customerbookingcancel',$row->schedul_id) }}" class="btn btn-info">Cancel</a>
                         @endif
 
                     </td>
@@ -61,6 +63,7 @@
                 <th>Customer Name</th>
                 <th>Start Time</th>
                 <th>End Time</th>
+                <th>Date</th>
                 <th>Action</th>
               </tr>
               </tfoot>

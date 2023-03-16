@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AdminBarber;
 use App\Models\User;
+use App\Rules\CheckDate;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -49,8 +50,9 @@ class CustomerController extends Controller
 
         //dd($id);
 
-        $request->validate([
-            'schedul_id' => 'required',
+        $validate=$request->validate([
+            'schedul_id' => ['required'],
+            'date'=>['required','date',new CheckDate]
         ]);
 
         $customer_name = Auth::user()->name;
@@ -70,7 +72,7 @@ class CustomerController extends Controller
         $data['schedul_id'] = $schedul_id;
         // $data['s_time']=$schedul_time->s_time;
         // $data['e_time']=$schedul_time->e_time;
-        $data['date'] = $date;
+        $data['date'] = $request->date;
 
         DB::table('customers')->insert($data);
         $notification = array('message' => 'apointment submit', 'alert-type' => 'success');
@@ -86,9 +88,9 @@ class CustomerController extends Controller
             ->join('admin_barbers', 'customers.schedul_id', 'admin_barbers.id')
             ->where('customers.customer_id', $id)
             ->where('customers.confirm', 1)
-            ->select()
+            ->select('admin_barbers.*', 'customers.date', 'customers.schedul_id')
             ->get();
-
+        //dd($apointment);
         return view('Users.auser.myindex',compact('apointment','user'));
     }
 

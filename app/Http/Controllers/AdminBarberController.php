@@ -58,6 +58,19 @@ class AdminBarberController extends Controller
         return view('admin.abarber.schedulshow',compact('schedul'));
     }
 
+    public function advancebook()
+    {
+        $date=date("Y-m-d");
+
+        $schedul=DB::table('customers')
+                ->join('admin_barbers','customers.schedul_id','admin_barbers.id')
+                ->where('customers.date','>',$date)
+                ->select('admin_barbers.*','customers.date','customers.customer_name','customers.confirm','customers.id')
+                ->get();
+        //dd($schedul);
+        return view('admin.customer.advance',compact('schedul'));
+    }
+
 
     public function currentbook()
     {
@@ -65,7 +78,9 @@ class AdminBarberController extends Controller
         $schedul=DB::table('customers')
                 ->join('admin_barbers','customers.schedul_id','admin_barbers.id')
                 ->where('customers.date',$date)
+                ->select('admin_barbers.*','customers.date','customers.customer_name','customers.confirm','customers.id','customers.schedul_id')
                 ->get();
+        //dd($schedul);
         return view('admin.customer.currentbook',compact('schedul'));
     }
 
@@ -75,9 +90,24 @@ class AdminBarberController extends Controller
         $date=date("Y-m-d");
         $schedul=DB::table('customers')
                 ->join('admin_barbers','customers.schedul_id','admin_barbers.id')
-                ->whereNot('customers.date',$date)
+                ->where('customers.date','<',$date)
+                ->select('admin_barbers.*','customers.date','customers.customer_name')
                 ->get();
         return view('admin.customer.oldbook',compact('schedul'));
+    }
+
+    public function adconfirm($id)
+    {
+        DB::table('customers')->where('id',$id)->update(['confirm'=>1]);
+
+        return redirect()->back();
+    }
+
+    public function adcancel($id)
+    {
+        DB::table('customers')->where('id',$id)->update(['confirm'=>0]);
+
+        return redirect()->back();
     }
 
 

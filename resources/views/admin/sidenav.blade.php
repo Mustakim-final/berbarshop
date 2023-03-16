@@ -32,6 +32,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
+                        <a href="{{ route('admin.customeradvancebooking') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Advance Booking</p>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
                         <a href="{{ route('admin.customerbooking') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Current Booking</p>

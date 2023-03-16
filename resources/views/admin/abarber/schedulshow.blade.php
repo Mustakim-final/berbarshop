@@ -114,7 +114,7 @@
                                     <th>1PM to 2 PM</th>
                                     <th>2PM to 3 PM</th>
                                     <th>3PM to 4 PM</th>
-                                    
+
                                 </tr>
                             </tfoot>
                         </table>

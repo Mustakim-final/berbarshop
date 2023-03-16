@@ -87,6 +87,7 @@ class BarberController extends Controller
         $data['date']=$request->date;
         $data['b_id']=$id;
         $data['duration']=60;
+        $data['barber']=2;
 
         DB::table('admin_barbers')->insert($data);
 

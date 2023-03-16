@@ -43,7 +43,14 @@
                     <th>{{ $row->end_time }}</th>
                     <th>{{ $row->date }}</th>
 
+                    <td>
+                        @if ($row->confirm==0)
+                        <a href="{{ route('admin.customerbookingadconfirm',$row->id) }}" class="btn btn-info">Confirm</a>
+                        @else
+                        <a href="{{ route('admin.customerbookingadcancel',$row->id) }}" class="btn btn-info">Cancel</a>
+                        @endif
 
+                    </td>
                   </tr>
               @endforeach
 
